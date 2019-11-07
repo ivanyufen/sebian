@@ -20,18 +20,26 @@
                 dark
                 flat
               >
-                <v-toolbar-title>SMU Login</v-toolbar-title>
+                <v-toolbar-title>SMU Register</v-toolbar-title>
                 <v-spacer />
                 
               </v-toolbar>
               <v-card-text>
                 <v-form>
                   <v-text-field
-                    label="Username / Email"
+                    label="Email"
+                    name="login"
+                    prepend-icon="email"
+                    type="text"
+                    v-model="data.email"
+                  />
+
+                  <v-text-field
+                    label="Username"
                     name="login"
                     prepend-icon="person"
                     type="text"
-                    v-model="data.user"
+                    v-model="data.username"
                   />
 
                   <v-text-field
@@ -47,12 +55,12 @@
               </v-card-text>
               <v-card-text>
                 <p class="text-justify">
-                    Not yet registered? Register <router-link to="/register">here</router-link>
+                    Have an account already? Login <router-link to="/login">here</router-link>
                 </p>
                 </v-card-text>
               <v-card-actions>
                 <v-spacer />
-                <v-btn color="primary" @click="login">Login</v-btn>
+                <v-btn color="primary" @click="register">Register</v-btn>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -64,14 +72,15 @@
 
 <script>
   export default {
-    name: 'login',
+    name: 'register',
     props: {
       source: String,
     },
     data(){
         return{
             data: {
-                user: '',
+                email: '',
+                username: '',
                 password: ''
             }
         }
@@ -82,8 +91,8 @@
                 this.login();
             }
         },
-        login(){
-            console.log("Login", this.data.user, this.data.password);
+        register(){
+            console.log("register", this.data.user, this.data.password);
         }
     }
   }

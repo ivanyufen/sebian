@@ -4,7 +4,7 @@ Vue.use(VueRouter);
 
 import Content from "./containers/Content";
 import Login from "./containers/Login"
-
+import Register from "./containers/Register"
 
 const router = new VueRouter({
     mode: 'history',
@@ -21,6 +21,11 @@ const router = new VueRouter({
             path: "/login",
             name: "Login",
             component: Login
+        },
+        {
+            path: "/register",
+            name: "Register",
+            component: Register
         }
     ]
 });
